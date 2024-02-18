@@ -398,3 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 Kanban.Server.WebApp/wwwroot/
+
+Kanban.Server.WebApp/appsettings.Development.json

@@ -10,6 +10,8 @@ public class Program
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+    builder.Services.AddApplicationInsightsTelemetry();
+
     var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,7 +34,7 @@ public class Program
       "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    app.MapGet("/weatherforecast", () =>
+    app.MapGet("/weatherforecast", ( ILogger<Program> logger ) =>
       {
         var forecast = Enumerable.Range(1, 5).Select(index =>
             new WeatherForecast
@@ -42,6 +44,8 @@ public class Program
               summaries[Random.Shared.Next(summaries.Length)]
             ))
           .ToArray();
+        logger.LogInformation( "Logging from the minimal API endpoint" );
+        logger.LogError( $"Logging from weather with chance of {forecast[0].Summary}" );
         return forecast;
       })
       .WithName("GetWeatherForecast")
