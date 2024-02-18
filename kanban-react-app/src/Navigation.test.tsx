@@ -14,9 +14,11 @@ test("renders navigation links", () => {
   const aboutLink = getByText(/about/i);
   const contactLink = getByText(/contact/i);
   const userLink = getByText(/user/i);
+  const failedLink = getByText(/fail/i);
 
   expect(homeLink).toBeInTheDocument();
   expect(aboutLink).toBeInTheDocument();
   expect(contactLink).toBeInTheDocument();
   expect(userLink).toBeInTheDocument();
+  expect(failedLink).toBeInTheDocument();
 });
