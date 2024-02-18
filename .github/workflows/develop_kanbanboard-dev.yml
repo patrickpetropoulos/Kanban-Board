@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - kanbanboard-dev
 on:
   push:
     branches:
-      - master
+      - develop
   workflow_dispatch:
 
 jobs:
@@ -66,5 +66,5 @@ jobs:
         with:
           app-name: 'kanbanboard-dev'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0F9A01D191A54E279709064E4C5C3397 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DEV }}
           package: .
