@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Specify the Node.js version you need
+          node-version: '20' # Specify the Node.js version you need
 
       - name: Install and build React app
         run: |
@@ -37,7 +37,11 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
         working-directory: Kanban.Server.WebApp
-
+        
+      - name: Run integration tests
+        run: dotnet test --configuration Release --no-build
+        working-directory: Kanban.Server.WebApp.IntegrationTests
+        
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
         working-directory: Kanban.Server.WebApp
