@@ -35,11 +35,15 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: |
+              dotnet restore
+              dotnet build --configuration Release
         working-directory: Kanban.Server.WebApp
         
       - name: Run integration tests
-        run: dotnet test --configuration Release --no-build
+        run: |
+              dotnet restore
+              dotnet test --configuration Release
         working-directory: Kanban.Server.WebApp.IntegrationTests
         
       - name: dotnet publish
