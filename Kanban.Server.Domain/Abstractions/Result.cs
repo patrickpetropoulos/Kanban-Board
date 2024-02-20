@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Kanban.Server.Domain;
+namespace Kanban.Server.Domain.Abstractions;
 public class Result
 {
     public Result(bool isSuccess, Error error)

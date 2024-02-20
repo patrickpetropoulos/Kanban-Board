@@ -1,4 +1,4 @@
-﻿namespace Kanban.Server.Domain;
+﻿namespace Kanban.Server.Domain.Abstractions;
 
 public record Error(string Code, string Name)
 {
