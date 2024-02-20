@@ -5,8 +5,6 @@ import Navigation from "./Navigation";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Sidebar from "./components/Sidebar";
-import { display } from "@mui/system";
 
 const App: React.FC = () => {
   return (
