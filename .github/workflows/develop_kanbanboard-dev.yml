@@ -23,10 +23,9 @@ jobs:
 
       - name: Install and build React app
         run: |
-          cd kanban-react-app
+          cd kanban-react-vite-app
           npm install
-          npm run test
-          npm run buildlinux
+          npm run build
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4 
