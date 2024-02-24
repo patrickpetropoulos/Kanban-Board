@@ -13,7 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{35F9A3D2-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{426FD893-A16F-4901-94D0-97DF8751BC43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Server.Domain.UnitTests", "Kanban.Server.Domain.UnitTests\Kanban.Server.Domain.UnitTests.csproj", "{552A23AF-4402-491C-A8D6-A767E80782E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kanban.Server.Domain.UnitTests", "Kanban.Server.Domain.UnitTests\Kanban.Server.Domain.UnitTests.csproj", "{552A23AF-4402-491C-A8D6-A767E80782E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Server.Application", "Kanban.Server.Application\Kanban.Server.Application.csproj", "{903C5661-A0A6-4EB9-8E24-8A45B9F680F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban.Server.Infrastructure", "Kanban.Server.Infrastructure\Kanban.Server.Infrastructure.csproj", "{138E4E29-C977-4C38-81DB-F5CE05A957DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{552A23AF-4402-491C-A8D6-A767E80782E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{552A23AF-4402-491C-A8D6-A767E80782E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{552A23AF-4402-491C-A8D6-A767E80782E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903C5661-A0A6-4EB9-8E24-8A45B9F680F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903C5661-A0A6-4EB9-8E24-8A45B9F680F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903C5661-A0A6-4EB9-8E24-8A45B9F680F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903C5661-A0A6-4EB9-8E24-8A45B9F680F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138E4E29-C977-4C38-81DB-F5CE05A957DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138E4E29-C977-4C38-81DB-F5CE05A957DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138E4E29-C977-4C38-81DB-F5CE05A957DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138E4E29-C977-4C38-81DB-F5CE05A957DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{3713F7FE-0542-48A3-A001-E116E03EA233} = {35F9A3D2-8B11-44D7-B5EA-8807F28AFA2F}
 		{2F4E3D04-A6D2-416C-8271-C181EE6A855E} = {426FD893-A16F-4901-94D0-97DF8751BC43}
 		{552A23AF-4402-491C-A8D6-A767E80782E1} = {35F9A3D2-8B11-44D7-B5EA-8807F28AFA2F}
+		{903C5661-A0A6-4EB9-8E24-8A45B9F680F9} = {426FD893-A16F-4901-94D0-97DF8751BC43}
+		{138E4E29-C977-4C38-81DB-F5CE05A957DD} = {426FD893-A16F-4901-94D0-97DF8751BC43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D39D700-434D-4C7F-8E06-3EDA83A75CEA}

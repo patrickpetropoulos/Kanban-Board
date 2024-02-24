@@ -1,3 +1,10 @@
+
+
+using Kanban.Server.Application.Projects;
+using Kanban.Server.Domain.Projects;
+using Kanban.Server.Infrastructure.Projects;
+using Microsoft.Azure.Cosmos;
+
 public class Program
 {
   public static void Main(string[] args)
@@ -12,14 +19,20 @@ public class Program
 
     builder.Services.AddApplicationInsightsTelemetry();
 
+    builder.Services.AddSingleton( x => new CosmosClient( builder.Configuration["CosmosDb:Account"], builder.Configuration["CosmosDb:Key"] ) );
+    builder.Services.AddSingleton<ICosmosProjectService, CosmosProjectService>();
+
+
+
     var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
+    //if (app.Environment.IsDevelopment())
+    //{
       app.UseSwagger();
       app.UseSwaggerUI();
-    }
+    //}
+
 
     app.UseHttpsRedirection();
 
@@ -34,7 +47,7 @@ public class Program
       "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    app.MapGet("/weatherforecast", ( ILogger<Program> logger ) =>
+    app.MapGet("/weatherforecast", async ( ILogger<Program> logger, ICosmosProjectService cosmosProjectService ) =>
       {
         var forecast = Enumerable.Range(1, 5).Select(index =>
             new WeatherForecast
@@ -46,6 +59,19 @@ public class Program
           .ToArray();
         logger.LogInformation( "Logging from the minimal API endpoint" );
         logger.LogError( $"Logging from weather with chance of {forecast[0].Summary}" );
+
+        var project = new Project(Guid.NewGuid(), new ProjectName( forecast[0].Summary ) );
+        var cosmosResult = await cosmosProjectService.UpsertProjectAsync( project );
+        if (cosmosResult.IsSuccess)
+        {
+          logger.LogInformation( $"Success with code  {cosmosResult.Value.HttpStatusCode} and charge {cosmosResult.Value.ResultCharge}" );
+        }
+        else
+        {
+          logger.LogError( $"Error: {cosmosResult.Error.Name}" );
+        }
+
+
         return forecast;
       })
       .WithName("GetWeatherForecast")

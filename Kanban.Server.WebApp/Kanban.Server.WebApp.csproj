@@ -17,4 +17,8 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kanban.Server.Infrastructure\Kanban.Server.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
